@@ -2,34 +2,34 @@ elegir_enemigo = input("Elige un pokemon enemigo (ARCANINE / ZAPDOS / MUK): ").u
 
 vida_pikachu = 100
 vida_enemigo = 0
+ataque_enemigo = 0
 
 if elegir_enemigo == "ARCANINE":
     vida_enemigo = 85
-if elegir_enemigo == "ZAPDOS":
+    nombre_enemigo = "ARCANINE"
+    ataque_enemigo = 9
+elif elegir_enemigo == "ZAPDOS":
     vida_enemigo = 100
-if elegir_enemigo == "MUK":
+    nombre_enemigo = "ZAPDOS"
+    ataque_enemigo = 10
+elif elegir_enemigo == "MUK":
     vida_enemigo = 90
+    nombre_enemigo = "MUK"
+    ataque_enemigo = 8
 
 while vida_pikachu > 0 and vida_enemigo > 0:
     ataque_elegido = input("Selecciona tu ataque (RAYO / TRUENO): ").upper()
 
     if ataque_elegido == "RAYO":
-        print("Pikachu hace 15 de daño")
         vida_enemigo -= 15
-    if ataque_elegido == "TRUENO":
-        print("Pikachu hace 25 de daño")
+        print("Pikachu usa ataque rayo y hace 15 de daño")
+    elif ataque_elegido == "TRUENO":
         vida_enemigo -= 25
-    print("La vida del enemigo es {}".format(vida_enemigo))
+        print("Pikachu usa ataque trueno y hace 25 de daño")
 
-    if elegir_enemigo == "ARCANINE":
-        print("Arcanine te hace 10 de daño")
-        vida_pikachu -= 10
-    if elegir_enemigo == "ZAPDOS":
-        print("Zapdos te hace 10 de daño")
-        vida_pikachu -= 10
-    if elegir_enemigo == "MUK":
-        print("Muk te hace 10 de daño")
-        vida_pikachu -= 10
+    print("La vida de {} ahora es {}".format(nombre_enemigo, vida_enemigo))
+    print("{} te hace un ataque de {} de daño".format(nombre_enemigo, ataque_enemigo))
+    vida_pikachu -= ataque_enemigo
     print("La vida de Pikachu es {}".format(vida_pikachu))
 
 if vida_pikachu <= 0:
